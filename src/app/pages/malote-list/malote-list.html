@@ -1,26 +1,27 @@
 <h1>Malotes</h1>
 
-<button> Novo Malote </button>
-
-<table border="1">
+<table border="1" *ngIf="malotes$ | async as malotes; else carregando">
   <thead>
     <tr>
-      <th>Código</th>
+      <th>Funcionário</th>
+      <th>Matrícula</th>
+      <th>Data Envio</th>
+      <th>Situação</th>
       <th>Descrição</th>
-      <th>Data</th>
-      <th>Ações</th>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let malote of malotes">
-      <td>{{ malote.codigo }}</td>
-      <td>{{ malote.descricao }}</td>
-      <td>{{ malote.dataCriacao }}</td>
-      <td>
-        <button>Editar</button>
-        <button>Excluir</button>
-      </td>
+      <td>{{ malote.nomeFuncionario }}</td>
+      <td>{{ malote.matricula }}</td>
+      <td>{{ malote.dataEnvio }}</td>
+      <td>{{ malote.situacaoMalote }}</td>
+      <td>{{ malote.descricaoSituacao }}</td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #carregando>
+  <p>Carregando malotes...</p>
+</ng-template>

@@ -2,20 +2,19 @@
 
 <form (ngSubmit)="salvar()">
   <div>
-    <label>Código</label><br>
-    <input [(ngModel)]="malote.codigo" name="codigo" required>
+    <label>Matricula do Funcionario</label><br>
+    <input [(ngModel)]="malote.matricula" name="matricula" required>
   </div>
 
   <div>
     <label>Descrição</label><br>
-    <input [(ngModel)]="malote.descricao" name="descricao" required>
+    <input [(ngModel)]="malote.descricaoSituacao" name="descricao" required>
   </div>
 
   <div>
-    <label>Data de Criação</label><br>
-    <input type="date" [(ngModel)]="malote.dataCriacao" name="dataCriacao">
+    <label>Data de Envio</label><br>
+    <input type="date" [(ngModel)]="malote.dataEnvio" name="dataEnvio">
   </div>
-
   <br>
 
   <button type="submit">Salvar</button>

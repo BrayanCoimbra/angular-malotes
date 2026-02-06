@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MaloteService } from '../../services/malote.service';
 import { Malote } from '../../models/malote';
+import { Page } from '../../models/page';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-malote-list',
@@ -13,23 +16,22 @@ import { Malote } from '../../models/malote';
 })
 export class MaloteListComponent implements OnInit {
 
-  malotes: Malote[] = [];
-
+  malotes$!: Observable<Malote[]>;
+  page!: Page<Malote>;
+  
   constructor(
     private service: MaloteService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.carregarMalotes();
+      this.carregarMalotes();
   }
 
   carregarMalotes() {
-    console.log('MaloteListComponent carregado');
-    this.service.listar().subscribe(dados => {
-      console.log('Dados recebidos:', dados);
-      this.malotes = dados;
-     });
+  this.malotes$ = this.service.listar().pipe(
+      map((page: Page<Malote>) => page.content)
+    );
   }
 
   novo() {

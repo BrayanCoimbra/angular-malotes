@@ -1,6 +1,7 @@
 export interface Malote {
-  id?: number;
-  codigo: string;
-  descricao: string;
-  dataCriacao: string;
+  nomeFuncionario: string;
+  matricula: string;
+  dataEnvio: string;
+  situacaoMalote: string;
+  descricaoSituacao: string;
 }

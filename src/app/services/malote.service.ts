@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Malote } from '../models/malote';
+import { Page } from '../models/page';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class MaloteService {
 
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Malote[]> {
-    return this.http.get<Malote[]>(this.apiUrl);
+  listar(): Observable<Page<Malote>> {
+    return this.http.get<Page<Malote>>(this.apiUrl);
   }
 
   buscarPorId(id: number): Observable<Malote> {

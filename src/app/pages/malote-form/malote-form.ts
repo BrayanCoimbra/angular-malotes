@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaloteService } from '../../services/malote.service';
 import { Malote } from '../../models/malote';
+import { Page } from '../../models/page';
 
 @Component({
   selector: 'app-malote-form',
@@ -15,9 +16,11 @@ import { Malote } from '../../models/malote';
 export class MaloteFormComponent implements OnInit {
 
   malote: Malote = {
-    codigo: '',
-    descricao: '',
-    dataCriacao: ''
+    matricula: '',
+    descricaoSituacao: '',
+    dataEnvio: '',
+    nomeFuncionario: '',
+    situacaoMalote: ''
   };
 
   id?: number;
