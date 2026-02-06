@@ -1,0 +1,23 @@
+<h2>{{ id ? 'Editar Malote' : 'Novo Malote' }}</h2>
+
+<form (ngSubmit)="salvar()">
+  <div>
+    <label>Código</label><br>
+    <input [(ngModel)]="malote.codigo" name="codigo" required>
+  </div>
+
+  <div>
+    <label>Descrição</label><br>
+    <input [(ngModel)]="malote.descricao" name="descricao" required>
+  </div>
+
+  <div>
+    <label>Data de Criação</label><br>
+    <input type="date" [(ngModel)]="malote.dataCriacao" name="dataCriacao">
+  </div>
+
+  <br>
+
+  <button type="submit">Salvar</button>
+  <button type="button" (click)="cancelar()">Cancelar</button>
+</form>
